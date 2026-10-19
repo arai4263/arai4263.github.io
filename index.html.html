@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新井 隆永 | Takahisa ARAI — Official Profile & Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+            serif: ['Noto Serif JP', 'serif'],
+          },
+          colors: {
+            kosen: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0066B3',
+              700: '#035397',
+              900: '#0c315e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    }
+    .serif-title {
+      font-family: 'Noto Serif JP', serif;
+    }
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300 selection:bg-kosen-600 selection:text-white">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl text-sm font-medium transition-all duration-300">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span id="toast-msg">コピーしました</span>
+  </div>
+
+  <!-- Top Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/85 dark:bg-slate-900/85 glass-card border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="user_uploaded_files/ttl=63d/user_uploaded/image_1e8b8b.png" alt="KOSEN Logo" class="w-7 h-7 rounded-full object-contain">
+        <span class="serif-title font-semibold tracking-wider text-sm sm:text-base text-slate-900 dark:text-white">Takahisa ARAI</span>
+      </div>
+
+      <!-- Nav Tabs -->
+      <nav class="hidden sm:flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-medium">
+        <button id="nav-overview" class="nav-btn px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition" data-tab="overview">ホーム</button>
+        <button id="nav-activities" class="nav-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" data-tab="activities">活動・挑戦</button>
+        <button id="nav-story" class="nav-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" data-tab="story">価値観・経験</button>
+        <button id="nav-settings" class="nav-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" data-tab="settings">SNS管理</button>
+      </nav>
+
+      <!-- Actions: Lang & Theme -->
+      <div class="flex items-center gap-2">
+        <button id="lang-toggle" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5" title="Switch Language">
+          <span id="lang-label">EN</span>
+        </button>
+        <button id="theme-toggle" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Dark Mode">
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom-like Subnav -->
+    <div class="flex sm:hidden border-t border-slate-100 dark:border-slate-800/80 px-2 py-1.5 justify-around bg-white/95 dark:bg-slate-900/95 text-xs font-medium">
+      <button class="nav-btn-mobile px-3 py-1 rounded-lg bg-kosen-50 dark:bg-slate-800 text-kosen-600 dark:text-sky-400 font-semibold" data-tab="overview">ホーム</button>
+      <button class="nav-btn-mobile px-3 py-1 rounded-lg text-slate-500 dark:text-slate-400" data-tab="activities">活動・挑戦</button>
+      <button class="nav-btn-mobile px-3 py-1 rounded-lg text-slate-500 dark:text-slate-400" data-tab="story">価値観・経験</button>
+      <button class="nav-btn-mobile px-3 py-1 rounded-lg text-slate-500 dark:text-slate-400" data-tab="settings">SNS管理</button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- ==================== TAB 1: OVERVIEW (HOME) ==================== -->
+    <section id="tab-overview" class="tab-panel animate-fade space-y-8">
+      
+      <!-- Minimalist Hero Card (Mirrors Business Card Design) -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-10 shadow-sm relative overflow-hidden">
+        <!-- Top subtle accent bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-kosen-600 via-sky-500 to-slate-300 dark:to-slate-700"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Column: Portrait + Name -->
+          <div class="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left md:border-r border-slate-200 dark:border-slate-800 md:pr-8">
+            <div class="relative mb-5 group">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 ring-2 ring-kosen-600/90 dark:ring-sky-400 bg-white dark:bg-slate-800 overflow-hidden shadow-md">
+                <img src="user_uploaded_files/ttl=63d/user_uploaded/arai.jpg" alt="新井 隆永" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition duration-500">
+              </div>
+              <span class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full" title="Active"></span>
+            </div>
+
+            <p id="hero-dept" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mb-1">電気電子工学科</p>
+            <h1 id="hero-name" class="serif-title text-2xl sm:text-3xl font-bold tracking-wider text-slate-900 dark:text-white mb-1">新井 隆永</h1>
+            <p class="text-xs sm:text-sm text-slate-400 dark:text-slate-500 font-medium tracking-widest uppercase">Takahisa ARAI</p>
+          </div>
+
+          <!-- Right Column: Affiliation, Tagline, Quick Actions -->
+          <div class="md:col-span-7 flex flex-col justify-between space-y-5">
+            <div class="flex items-center gap-3.5 justify-center md:justify-start">
+              <img src="user_uploaded_files/ttl=63d/user_uploaded/image_1e8b8b.png" alt="KOSEN" class="w-10 h-10 rounded-full shrink-0">
+              <div>
+                <p id="hero-org-sub" class="text-[11px] text-slate-400 dark:text-slate-500">独立行政法人国立高等専門学校機構</p>
+                <p id="hero-org-main" class="serif-title text-base sm:text-lg font-semibold text-slate-800 dark:text-slate-100">鈴鹿工業高等専門学校</p>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4">
+              <p id="hero-bio" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                「人とは違う道を歩みたい」という軸のもと、高専で工学を学びながら、Flutterアプリ開発・ビジネスコンテスト・海外ハッカソン・カメラや旅など、枠にとらわれない挑戦を続けています。
+              </p>
+            </div>
+
+            <!-- Action Buttons (Save Contact & Copy Email) -->
+            <div class="flex flex-wrap gap-2.5 pt-1 justify-center md:justify-start">
+              <button id="btn-vcard" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 text-xs font-semibold flex items-center gap-2 shadow-sm transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                <span id="txt-vcard">連絡先をスマホに保存 (.vcf)</span>
+              </button>
+              <button id="btn-copy-school-mail" class="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium flex items-center gap-2 transition">
+                <svg class="w-4 h-4 text-kosen-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span id="txt-copy-mail">学校メールをコピー</span>
+              </button>
+              <button id="btn-copy-personal-mail" class="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium flex items-center gap-2 transition">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span id="txt-copy-personal-mail">個人メールをコピー</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Primary SNS & Contact Hub (Easy access from QR code) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between px-1">
+          <h2 id="sec-sns-title" class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">SNS & Links</h2>
+          <button id="btn-jump-edit" class="text-xs text-kosen-600 dark:text-sky-400 hover:underline font-medium flex items-center gap-1">
+            <span id="txt-edit-links">リンク先を編集</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Instagram Card (Featured) -->
+          <a id="link-instagram" href="https://www.instagram.com/arai_4263/" target="_blank" rel="noopener noreferrer" class="group bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 hover:border-pink-500/50 dark:hover:border-pink-500/50 shadow-sm hover:shadow-md transition flex items-center justify-between">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white">Instagram</p>
+                <p id="disp-ig-handle" class="text-xs text-slate-500 dark:text-slate-400">@arai_4263</p>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-400 group-hover:text-pink-500 transition">Open ↗</span>
+          </a>
+
+          <!-- GitHub / Dev Card -->
+          <a id="link-github" href="https://github.com/arai4263" target="_blank" rel="noopener noreferrer" class="group bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 shadow-sm hover:shadow-md transition flex items-center justify-between">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-slate-900 dark:bg-slate-800 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white">GitHub / Dev</p>
+                <p id="disp-gh-handle" class="text-xs text-slate-500 dark:text-slate-400">@arai4263</p>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition">Open ↗</span>
+          </a>
+
+          <!-- Academic Email Card -->
+          <button id="card-copy-school" class="text-left group bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 hover:border-kosen-600/50 shadow-sm hover:shadow-md transition flex items-center justify-between">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-11 h-11 rounded-xl bg-kosen-50 dark:bg-slate-800 flex items-center justify-center text-kosen-600 dark:text-sky-400 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div class="truncate">
+                <p id="lbl-school-mail" class="text-sm font-semibold text-slate-900 dark:text-white">School E-Mail</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 truncate">r06e02@suzuka.kosen-ac.jp</p>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-400 group-hover:text-kosen-600 shrink-0 ml-2">Copy</span>
+          </button>
+
+          <!-- Personal Email Card -->
+          <button id="card-copy-personal" class="text-left group bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 hover:border-kosen-600/50 shadow-sm hover:shadow-md transition flex items-center justify-between">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                </svg>
+              </div>
+              <div class="truncate">
+                <p id="lbl-personal-mail" class="text-sm font-semibold text-slate-900 dark:text-white">Personal E-Mail</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 truncate">ta.arai1401@gmail.com</p>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-400 group-hover:text-kosen-600 shrink-0 ml-2">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Facts / Keywords Grid -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 shadow-sm">
+        <h2 id="sec-profile-title" class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">Quick Profile & Keywords</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+            <p id="qf-1-label" class="text-xs text-slate-400 dark:text-slate-500 mb-1">出身・ベース</p>
+            <p id="qf-1-val" class="font-medium text-slate-800 dark:text-slate-200">愛知県東海市出身 / 三重県鈴鹿市（高専寮）</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+            <p id="qf-2-label" class="text-xs text-slate-400 dark:text-slate-500 mb-1">開発・プロジェクト</p>
+            <p id="qf-2-val" class="font-medium text-slate-800 dark:text-slate-200">Flutterアプリ開発 / ビジネスコンテスト企画</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+            <p id="qf-3-label" class="text-xs text-slate-400 dark:text-slate-500 mb-1">部活動・カルチャー</p>
+            <p id="qf-3-val" class="font-medium text-slate-800 dark:text-slate-200">卓球部 / 写真部 / ヲタ芸パフォーマンス</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+            <p id="qf-4-label" class="text-xs text-slate-400 dark:text-slate-500 mb-1">趣味・関心</p>
+            <p id="qf-4-val" class="font-medium text-slate-800 dark:text-slate-200">海外・国内一人旅 / サイクリング / カメラ / モビリティ</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 2: ACTIVITIES & CHALLENGES ==================== -->
+    <section id="tab-activities" class="tab-panel hidden animate-fade space-y-6">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 id="act-header" class="serif-title text-xl font-bold text-slate-900 dark:text-white mb-2">Projects & Global Challenges</h2>
+        <p id="act-sub" class="text-sm text-slate-500 dark:text-slate-400 mb-6">エンジニアリング・ビジネス・グローバル交流の3軸で取り組んでいる活動一覧です。</p>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition" data-filter="all">All</button>
+          <button class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition" data-filter="global">Global / 海外</button>
+          <button class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition" data-filter="tech">Tech & Biz / 開発</button>
+          <button class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition" data-filter="culture">Culture & Hobby</button>
+        </div>
+
+        <!-- Activity Cards Container -->
+        <div id="activities-grid" class="grid grid-cols-1 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: STORY & PHILOSOPHY ==================== -->
+    <section id="tab-story" class="tab-panel hidden animate-fade space-y-6">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+        <div>
+          <span class="inline-block px-2.5 py-1 rounded-md bg-kosen-50 dark:bg-slate-800 text-kosen-600 dark:text-sky-400 text-xs font-semibold mb-2">VISION & INSIGHTS</span>
+          <h2 id="story-main-title" class="serif-title text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">「人とは違う道を歩み、自分の選択を正解にする」</h2>
+        </div>
+
+        <p id="story-lead" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          高専への進学を決めた原動力は「人とは違う道を歩みたい」という好奇心でした。高専での寮生活や、東南アジアでのフィールドワーク・留学を通じて得た3つのコアバリューを紹介します。
+        </p>
+
+        <div id="story-cards" class="space-y-4"></div>
+
+        <!-- Future Goal Banner -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/60">
+          <h3 id="goal-title" class="text-sm font-bold text-slate-900 dark:text-white mb-1.5">Next Step：大学編入と場所にとらわれない働き方へ</h3>
+          <p id="goal-desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            高専進学によって知識と行動範囲が劇的に広がった体験をさらにアップデートするため、卒業後は大学編入を目指しています。将来はエンジニアリングと企画力を掛け合わせ、世界中を旅しながら価値を生み出すノマドワーカー・起業家としての働き方を追求していきます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: SNS & LINK MANAGER ==================== -->
+    <section id="tab-settings" class="tab-panel hidden animate-fade space-y-6">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+        <div>
+          <h2 id="set-title" class="serif-title text-xl font-bold text-slate-900 dark:text-white mb-1">SNSリンク・アカウント管理</h2>
+          <p id="set-desc" class="text-sm text-slate-500 dark:text-slate-400">
+            InstagramやGitHubのアカウント名が変わっても、紙の名刺を刷り直す必要はありません。ここでIDを変更すると、Webサイト上のボタンの飛び先が即座に更新されます。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="input-ig" class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1.5">Instagram ユーザーネーム（@なし）</label>
+            <div class="flex gap-2">
+              <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-400 text-sm">instagram.com/</span>
+              <input id="input-ig" type="text" value="arai_4263" class="flex-1 rounded-r-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-kosen-600">
+            </div>
+          </div>
+
+          <div>
+            <label for="input-gh" class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1.5">GitHub ユーザーネーム</label>
+            <div class="flex gap-2">
+              <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-400 text-sm">github.com/</span>
+              <input id="input-gh" type="text" value="arai4263" class="flex-1 rounded-r-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-kosen-600">
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button id="btn-save-links" class="px-5 py-2.5 rounded-xl bg-kosen-600 hover:bg-kosen-700 text-white text-xs font-semibold shadow-sm transition">
+              変更を反映する
+            </button>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-5">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">無料でこのWebサイトを公開する方法（おすすめ）</h3>
+          <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
+            <li>• <strong>GitHub Pages（無料・一番おすすめ）</strong>：GitHubに <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">ユーザー名.github.io</code> というリポジトリを作り、このHTMLファイルを <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">index.html</code> としてアップロードするだけで世界中からアクセス可能になります。</li>
+            <li>• <strong>Vercel / Cloudflare Pages（無料）</strong>：ファイルをドラッグ＆ドロップするだけで数秒で高速なURLが発行されます。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-4 sm:px-6 py-8 border-t border-slate-200/60 dark:border-slate-800/60 text-center text-xs text-slate-400 dark:text-slate-500">
+    <p>© 2026 Takahisa ARAI — National Institute of Technology (KOSEN), Suzuka College.</p>
+  </footer>
+
+  <script>
+    // State
+    let currentLang = 'ja';
+    let currentFilter = 'all';
+    let snsConfig = {
+      ig: 'arai_4263',
+      gh: 'arai4263'
+    };
+
+    // Load saved config safely
+    try {
+      const saved = localStorage.getItem('takahisa_sns_config_v2');
+      if (saved) snsConfig = JSON.parse(saved);
+    } catch (e) {}
+
+    const i18n = {
+      ja: {
+        navOverview: 'ホーム',
+        navActivities: '活動・挑戦',
+        navStory: '価値観・経験',
+        navSettings: 'SNS管理',
+        dept: '電気電子工学科',
+        name: '新井 隆永',
+        orgSub: '独立行政法人国立高等専門学校機構',
+        orgMain: '鈴鹿工業高等専門学校',
+        bio: '「人とは違う道を歩みたい」という軸のもと、高専で工学を学びながら、Flutterアプリ開発・ビジネスコンテスト・海外ハッカソン・カメラや旅など、枠にとらわれない挑戦を続けています。',
+        vcard: '連絡先をスマホに保存 (.vcf)',
+        copyMail: '学校メールをコピー',
+        copyPersonalMail: '個人メールをコピー',
+        copyPersonalMail: '個人メールをコピー',
+        lblSchoolMail: '学校用メール (Academic)',
+        lblPersonalMail: '個人用メール (Personal)',
+        editLinks: 'リンク先を編集',
+        qf1Label: '出身・拠点',
+        qf1Val: '愛知県東海市出身 / 三重県鈴鹿市（高専寮）',
+        qf2Label: '開発・プロジェクト',
+        qf2Val: 'Flutterアプリ開発 / ビジネスコンテスト企画',
+        qf3Label: '部活動・カルチャー',
+        qf3Val: '卓球部 / 写真部 / ヲタ芸パフォーマンス',
+        qf4Label: '趣味・関心',
+        qf4Val: '海外・国内旅行 / サイクリング / カメラ / 新幹線・自動車',
+        actHeader: '活動・プロジェクト一覧',
+        actSub: 'エンジニアリング・ビジネス・グローバル交流の3軸で取り組んでいる挑戦です。',
+        storyMainTitle: '「人とは違う道を歩み、自分の選択を正解にする」',
+        storyLead: '高専への進学を決めた原動力は「人とは違う道を歩みたい」という好奇心でした。高専での寮生活や、東南アジアでのフィールドワーク・研修を通じて得た3つのコアバリューを紹介します。',
+        goalTitle: 'Next Step：大学編入と場所にとらわれない働き方へ',
+        goalDesc: '高専進学によって知識と行動範囲が劇的に広がった体験をさらにアップデートするため、卒業後は大学編入を目指しています。将来はエンジニアリングと企画力を掛け合わせ、世界中を旅しながら価値を生み出す働き方を追求していきます。',
+        toastCopied: 'クリップボードにコピーしました',
+        toastSaved: 'SNSリンク設定を更新しました',
+        toastVcard: '連絡先ファイル(.vcf)をダウンロードしました'
+      },
+      en: {
+        navOverview: 'Home',
+        navActivities: 'Activities',
+        navStory: 'My Story',
+        navSettings: 'Manage Links',
+        dept: 'Dept. of Electrical & Electronic Engineering',
+        name: 'Takahisa ARAI',
+        orgSub: 'National Institute of Technology (KOSEN)',
+        orgMain: 'Suzuka College',
+        bio: 'Driven by the philosophy of "walking a path of my own," I study Electrical & Electronic Engineering at Suzuka KOSEN while taking on diverse challenges in Flutter app development, business contests, international hackathons, photography, and global travel.',
+        vcard: 'Save Contact (.vcf)',
+        copyMail: 'Copy School Email',
+        copyPersonalMail: 'Copy Personal Email',
+        copyPersonalMail: 'Copy Personal Email',
+        lblSchoolMail: 'Academic E-Mail (Suzuka KOSEN)',
+        lblPersonalMail: 'Personal E-Mail (Gmail)',
+        editLinks: 'Edit SNS Handles',
+        qf1Label: 'Hometown & Base',
+        qf1Val: 'Tokai, Aichi / Suzuka, Mie, Japan',
+        qf2Label: 'Tech & Business',
+        qf2Val: 'Flutter App Development / Business Contests',
+        qf3Label: 'Clubs & Culture',
+        qf3Val: 'Table Tennis / Photography Club / Wotagei Performance',
+        qf4Label: 'Interests',
+        qf4Val: 'Global Travel / Cycling / Photography / Shinkansen & Cars',
+        actHeader: 'Projects & Global Challenges',
+        actSub: 'Key activities across engineering, entrepreneurship, and global exchange.',
+        storyMainTitle: '"Walk a Uniquely Chosen Path and Make It Right"',
+        storyLead: 'My decision to enter KOSEN came from a desire to take an unconventional path. Living in the dormitory and traveling across Asia shaped my three core principles.',
+        goalTitle: 'Next Step: University Transfer & Location-Independent Career',
+        goalDesc: 'To build upon the rapid growth I experienced at KOSEN, I aim to transfer to a university after graduation. My long-term vision is to combine engineering and product planning to work freely from anywhere in the world.',
+        toastCopied: 'Copied to clipboard!',
+        toastSaved: 'SNS links updated!',
+        toastVcard: 'Contact card (.vcf) downloaded!'
+      }
+    };
+
+    const activitiesData = [
+      {
+        category: 'global',
+        badgeJa: '海外研修・留学',
+        badgeEn: 'Study Abroad',
+        titleJa: 'マレーシア・ペナン研修（2週間）＆ 東南アジア探訪',
+        titleEn: 'Malaysia Penang Program & Southeast Asia Fieldwork',
+        descJa: 'ペナンでの2週間の海外研修に参加し、現地でのハッカソンや英語プレゼン、さらにはヲタ芸パフォーマンスまで全力で挑戦。クアラルンプールやシンガポール、タイ、台湾などアジア各国を巡り、急速なデジタル化や現地のリアルを肌で体感しました。',
+        descEn: 'Completed a two-week program in Penang, taking on hackathons, English presentations, and cultural performances. Explored Kuala Lumpur, Singapore, Thailand, and Taiwan to experience rapid digitalization firsthand.'
+      },
+      {
+        category: 'global',
+        badgeJa: 'グローバルハッカソン',
+        badgeEn: 'Global Hackathon',
+        titleJa: '仙台高専グローバルキャンプ参加',
+        titleEn: 'Sendai KOSEN Global Camp Hackathon',
+        descJa: '留学生や他高専の学生と共に、英語でコミュニケーションを取りながらハッカソンに挑戦。多様なバックグラウンドを持つ仲間とプロトタイプを作り上げる楽しさを学びました。',
+        descEn: 'Collaborated with international students in an intensive hackathon at Sendai KOSEN, building prototypes and communicating across languages.'
+      },
+      {
+        category: 'tech',
+        badgeJa: 'アプリ開発・企画',
+        badgeEn: 'App Dev & Biz',
+        titleJa: 'Flutterを用いたアプリ開発 ＆ ビジネスコンテスト挑戦',
+        titleEn: 'Flutter App Development & Business Contests',
+        descJa: 'チームプロジェクトではアイデア出し・企画立案からFlutterを用いたクロスプラットフォーム実装までを担当。技術を作るだけでなく「どう価値を届けるか」を考えるビジネスコンテストにも積極的に参加しています。',
+        descEn: 'Leading ideation, planning, and cross-platform mobile development using Flutter for team projects and student entrepreneurship competitions.'
+      },
+      {
+        category: 'culture',
+        badgeJa: '部活動・表現',
+        badgeEn: 'Clubs & Creative',
+        titleJa: '写真部・卓球部・ヲタ芸パフォーマンス',
+        titleEn: 'Photography, Table Tennis & Wotagei',
+        descJa: 'カメラを持って旅先の風景や乗り物を切り取る写真部での活動、集中力を磨く卓球部、そして国境を越えて場を盛り上げるヲタ芸など、文武両道・表現活動を楽しんでいます。',
+        descEn: 'Active in the Photography Club and Table Tennis Club, as well as performing Wotagei light-dance to connect with people across cultures.'
+      }
+    ];
+
+    const storiesData = [
+      {
+        num: '01',
+        titleJa: 'AIの上に立てる人間になる（産業と自動化のリアルから）',
+        titleEn: 'Standing Above AI in an Era of Automation',
+        bodyJa: 'マレーシアの半導体工場群やデジタル化された街並みを見る中で、自動化されたラインの間を埋める「人間の仕事」のリアルを目の当たりにしました。シンギュラリティが近づく時代だからこそ、受け身の作業者ではなく、自ら企画しAIや技術を使いこなす側の人間になるという強い問題意識を持っています。',
+        bodyEn: 'Observing semiconductor factories and digital infrastructure in Malaysia made me think deeply about automation and human roles—inspiring me to become someone who directs technology and creates original value.'
+      },
+      {
+        num: '02',
+        titleJa: '英語は「テストの科目」ではなく「世界と繋がる武器」',
+        titleEn: 'English as a Tool to Connect with the World',
+        bodyJa: 'かつては英語に苦手意識がありましたが、シンガポールでのトランジット中に偶然出会った中国の方と英語で対話し、互いの暮らしや社会について語り合えた経験から価値観が一変しました。完璧でなくても、自ら話しかける姿勢があれば世界と繋がれることを実感しています。',
+        bodyEn: 'A spontaneous conversation during a 5-hour transit in Singapore transformed how I view English—not as a school subject, but as a powerful bridge to understand people\'s lives around the globe.'
+      },
+      {
+        num: '03',
+        titleJa: '受け身の空気に流されず、主体的な環境へ飛び込む',
+        titleEn: 'Stepping Into Proactive Environments',
+        bodyJa: '海外の大学へ進学した先輩や、ロボコン・留学に挑むロールモデルとの出会いを通じ、「自分で選んだ選択に自信を持つこと」「あきらめずにやり切ること」を学びました。常により高い熱量を持つ環境に身を置き続けます。',
+        bodyEn: 'Inspired by active role models in the KOSEN network, I strive to step outside my comfort zone and immerse myself in challenging, proactive communities.'
+      }
+    ];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.textContent = msg;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2600);
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(i18n[currentLang].toastCopied + ': ' + text);
+        }).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(i18n[currentLang].toastCopied + ': ' + text);
+      } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    function renderSNSLinks() {
+      const igLink = document.getElementById('link-instagram');
+      const igHandle = document.getElementById('disp-ig-handle');
+      const ghLink = document.getElementById('link-github');
+      const ghHandle = document.getElementById('disp-gh-handle');
+
+      const cleanIg = snsConfig.ig.replace(/^@/, '').trim() || 'arai_4263';
+      const cleanGh = snsConfig.gh.replace(/^@/, '').trim() || 'arai4263';
+
+      igLink.href = 'https://www.instagram.com/' + encodeURIComponent(cleanIg) + '/';
+      igHandle.textContent = '@' + cleanIg;
+
+      ghLink.href = 'https://github.com/arai4263' + encodeURIComponent(cleanGh);
+      ghHandle.textContent = '@' + cleanGh;
+
+      document.getElementById('input-ig').value = cleanIg;
+      document.getElementById('input-gh').value = cleanGh;
+    }
+
+    function renderActivities() {
+      const grid = document.getElementById('activities-grid');
+      grid.innerHTML = '';
+      const filtered = activitiesData.filter(item => currentFilter === 'all' || item.category === currentFilter);
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 transition shadow-sm';
+        const badge = currentLang === 'ja' ? item.badgeJa : item.badgeEn;
+        const title = currentLang === 'ja' ? item.titleJa : item.titleEn;
+        const desc = currentLang === 'ja' ? item.descJa : item.descEn;
+
+        card.innerHTML = `
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-kosen-50 dark:bg-slate-700 text-kosen-600 dark:text-sky-400 text-[11px] font-semibold">${badge}</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">${title}</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${desc}</p>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderStories() {
+      const container = document.getElementById('story-cards');
+      container.innerHTML = '';
+      storiesData.forEach(st => {
+        const div = document.createElement('div');
+        div.className = 'p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex gap-4 items-start';
+        const title = currentLang === 'ja' ? st.titleJa : st.titleEn;
+        const body = currentLang === 'ja' ? st.bodyJa : st.bodyEn;
+        div.innerHTML = `
+          <span class="serif-title text-xl font-bold text-kosen-600 dark:text-sky-400 shrink-0 mt-0.5">${st.num}</span>
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1">${title}</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${body}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function applyLanguage() {
+      const t = i18n[currentLang];
+      document.getElementById('lang-label').textContent = currentLang === 'ja' ? 'EN' : 'JP';
+
+      document.getElementById('nav-overview').textContent = t.navOverview;
+      document.getElementById('nav-activities').textContent = t.navActivities;
+      document.getElementById('nav-story').textContent = t.navStory;
+      document.getElementById('nav-settings').textContent = t.navSettings;
+
+      const mobileBtns = document.querySelectorAll('.nav-btn-mobile');
+      const keys = ['navOverview', 'navActivities', 'navStory', 'navSettings'];
+      mobileBtns.forEach((btn, idx) => {
+        btn.textContent = t[keys[idx]];
+      });
+
+      document.getElementById('hero-dept').textContent = t.dept;
+      document.getElementById('hero-name').textContent = t.name;
+      document.getElementById('hero-org-sub').textContent = t.orgSub;
+      document.getElementById('hero-org-main').textContent = t.orgMain;
+      document.getElementById('hero-bio').textContent = t.bio;
+      document.getElementById('txt-vcard').textContent = t.vcard;
+      document.getElementById('txt-copy-mail').textContent = t.copyMail;
+      const pmBtn = document.getElementById('txt-copy-personal-mail');
+      if (pmBtn) pmBtn.textContent = t.copyPersonalMail;
+      document.getElementById('txt-copy-personal-mail').textContent = t.copyPersonalMail;
+      document.getElementById('lbl-school-mail').textContent = t.lblSchoolMail;
+      document.getElementById('lbl-personal-mail').textContent = t.lblPersonalMail;
+      document.getElementById('txt-edit-links').textContent = t.editLinks;
+
+      document.getElementById('qf-1-label').textContent = t.qf1Label;
+      document.getElementById('qf-1-val').textContent = t.qf1Val;
+      document.getElementById('qf-2-label').textContent = t.qf2Label;
+      document.getElementById('qf-2-val').textContent = t.qf2Val;
+      document.getElementById('qf-3-label').textContent = t.qf3Label;
+      document.getElementById('qf-3-val').textContent = t.qf3Val;
+      document.getElementById('qf-4-label').textContent = t.qf4Label;
+      document.getElementById('qf-4-val').textContent = t.qf4Val;
+
+      document.getElementById('act-header').textContent = t.actHeader;
+      document.getElementById('act-sub').textContent = t.actSub;
+      document.getElementById('story-main-title').textContent = t.storyMainTitle;
+      document.getElementById('story-lead').textContent = t.storyLead;
+      document.getElementById('goal-title').textContent = t.goalTitle;
+      document.getElementById('goal-desc').textContent = t.goalDesc;
+
+      renderActivities();
+      renderStories();
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabName);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.className = 'nav-btn px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition';
+        } else {
+          btn.className = 'nav-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition';
+        }
+      });
+
+      document.querySelectorAll('.nav-btn-mobile').forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.className = 'nav-btn-mobile px-3 py-1 rounded-lg bg-kosen-50 dark:bg-slate-800 text-kosen-600 dark:text-sky-400 font-semibold';
+        } else {
+          btn.className = 'nav-btn-mobile px-3 py-1 rounded-lg text-slate-500 dark:text-slate-400';
+        }
+      });
+    }
+
+    function downloadVCard() {
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Arai;Takahisa;;;',
+        'FN:新井 隆永 (Takahisa ARAI)',
+        'ORG:鈴鹿工業高等専門学校 (Suzuka KOSEN);電気電子工学科',
+        'TEL;TYPE=CELL:+81-70-7661-3695',
+        'EMAIL;TYPE=INTERNET,WORK:r06e02@suzuka.kosen-ac.jp',
+        'EMAIL;TYPE=INTERNET,HOME:ta.arai1401@gmail.com',
+        'URL:https://www.instagram.com/' + snsConfig.ig + '/',
+        'END:VCARD'
+      ].join('\r\n');
+
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Takahisa_Arai.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(i18n[currentLang].toastVcard);
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSNSLinks();
+      applyLanguage();
+
+      document.querySelectorAll('.nav-btn, .nav-btn-mobile').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+      });
+
+      document.getElementById('btn-jump-edit').addEventListener('click', () => switchTab('settings'));
+
+      document.getElementById('lang-toggle').addEventListener('click', () => {
+        currentLang = currentLang === 'ja' ? 'en' : 'ja';
+        applyLanguage();
+      });
+
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+
+      document.getElementById('btn-vcard').addEventListener('click', downloadVCard);
+      document.getElementById('btn-copy-school-mail').addEventListener('click', () => copyText('r06e02@suzuka.kosen-ac.jp'));
+      const pmEl = document.getElementById('btn-copy-personal-mail');
+      if (pmEl) pmEl.addEventListener('click', () => copyText('ta.arai1401@gmail.com'));
+      document.getElementById('btn-copy-personal-mail').addEventListener('click', () => copyText('ta.arai1401@gmail.com'));
+      document.getElementById('card-copy-school').addEventListener('click', () => copyText('r06e02@suzuka.kosen-ac.jp'));
+      document.getElementById('card-copy-personal').addEventListener('click', () => copyText('ta.arai1401@gmail.com'));
+
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          currentFilter = pill.dataset.filter;
+          document.querySelectorAll('.filter-pill').forEach(p => {
+            if (p.dataset.filter === currentFilter) {
+              p.className = 'filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition';
+            } else {
+              p.className = 'filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition';
+            }
+          });
+          renderActivities();
+        });
+      });
+
+      document.getElementById('btn-save-links').addEventListener('click', () => {
+        snsConfig.ig = document.getElementById('input-ig').value.trim() || 'arai_4263';
+        snsConfig.gh = document.getElementById('input-gh').value.trim() || 'arai4263';
+        try {
+          localStorage.setItem('takahisa_sns_config_v2', JSON.stringify(snsConfig));
+        } catch (e) {}
+        renderSNSLinks();
+        showToast(i18n[currentLang].toastSaved);
+        switchTab('overview');
+      });
+    });
+  </script>
+</body>
+</html>
